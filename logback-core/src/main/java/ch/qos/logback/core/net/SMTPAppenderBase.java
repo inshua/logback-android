@@ -162,7 +162,8 @@ public abstract class SMTPAppenderBase<E> extends AppenderBase<E> {
         props.put("mail.smtp.starttls.enable", "true");
       }
       if (isSSL()) {
-        String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
+        //String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
+        String SSL_FACTORY = "com.sun.mail.util.MailSSLSocketFactory";
         props.put("mail.smtp.socketFactory.port", Integer.toString(smtpPort));
         props.put("mail.smtp.socketFactory.class", SSL_FACTORY);
         props.put("mail.smtp.socketFactory.fallback", "true");
